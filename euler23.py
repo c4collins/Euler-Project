@@ -6,26 +6,30 @@ def isAbundant(num):
             divisorSum += x
            
     if divisorSum == num:
-        print "Perfect"
+        #print "Perfect"
         return False
     elif divisorSum < num:
-        print "Deficient"
+        #print "Deficient"
         return False
     else:
-        print "Abundant"
+        #print "Abundant"
         return True
     
     
 twoAbundant = []
+minNum = 1
+maxNum = 28
 
-for i in range(1,28):
+
+for i in range(nimNum, maxNum):
     res = isAbundant(i)
     print res
 
 
-#if isAbundant(i):
- #       for j in range(i,28123-i):
-  #          if isAbundant(j):
+    if isAbundant(i):
+        for j in range(i,maxNum-i):
+            if isAbundant(j):
+                pass
    #             twoAbundant.append(i+j)
                 
 print twoAbundant
