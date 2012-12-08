@@ -1,7 +1,12 @@
+import time
+
+t0 = time.time()
+
 def isAbundant(num):
+    # Returns true if num is an Abundant number
     divisorSum = 1
     
-    for x in range(2,int(num**0.5)+1):
+    for x in range(2,num):
         if num % x == 0:
             divisorSum += x
            
@@ -15,21 +20,19 @@ def isAbundant(num):
         #print "Abundant"
         return True
     
+  
     
-twoAbundant = []
+abundants = set()
+total = 0
 minNum = 1
-maxNum = 28
+maxNum = 28123
 
 
-for i in range(nimNum, maxNum):
-    res = isAbundant(i)
-    print res
-
-
+for i in range(minNum, maxNum):
     if isAbundant(i):
-        for j in range(i,maxNum-i):
-            if isAbundant(j):
-                pass
-   #             twoAbundant.append(i+j)
+        abundants.add(i)
+    if not any((i-a in abundants) for a in abundants):
+        total += i
                 
-print twoAbundant
+print total
+print time.time() - t0
